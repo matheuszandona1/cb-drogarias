@@ -25,10 +25,11 @@
 	&__text {
 		text-transform: uppercase;
 		@include text;
+		line-height: 100%;
 		color: $tag-texto;
 	}
-	background-color: $tag;
-	@include s-border;
+	background-color: rgba(255, 255, 255, 0.16);
+	@include l-border;
 	padding: 12px 20px;
 	display: inline-block;
 }
@@ -95,7 +96,7 @@ input:valid + label {
 	font-weight: bold;
 	text-decoration: none;
 	color: $neutro-50;
-	@include s-border;
+	@include l-border;
 	background: $cor-primaria;
 	display: inline-block;
 	&.no-color {
@@ -118,16 +119,38 @@ input:valid + label {
 }
 
 .card-resources {
-	max-width: 397px;
+	max-width: 228px;
+	width: 100%;
 	padding: 32px 40px;
 	background-color: $cor-primaria-clara;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
 	@include s-border;
+	.default__desc {
+		font-size: 16px;
+		font-style: normal;
+		font-weight: 700;
+		line-height: 150%; /* 24px */
+		color: #383838;
+	}
 	&__icon {
-		padding: 16px;
+		padding: 12px;
+		margin: 0 auto;
+		display: inline-block;
 		background-color: $neutro-50;
 		display: inline-block;
 		@include s-border;
 		margin-bottom: 24px;
 		color: $texto-resources;
+		max-width: 56px;
+		max-height: 56px;
+		img {
+			max-width: 32px;
+			height: auto;
+			object-fit: cover;
+			width: 100%;
+		}
 	}
 }
