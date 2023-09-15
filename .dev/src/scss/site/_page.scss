@@ -96,14 +96,25 @@
 	@include container;
 	text-align: center;
 	padding: 80px 24px;
+	@include media(s) {
+		text-align: left;
+	}
 	.default__title {
 		margin-bottom: 16px;
+		@include media(s) {
+			text-align: left;
+			font-size: 30px;
+		}
 		&.red {
 			background-color: $cor-secundaria;
 			display: inline-block;
 			padding: 8px 16px;
 			color: $neutro-50;
 			margin-bottom: 24px;
+			@include media(s) {
+				font-size: 29px;
+				padding: 8px 0px;
+			}
 		}
 	}
 	.default__desc {
@@ -127,6 +138,9 @@
 	background-color: $cor-primaria;
 	@include media(s) {
 		padding: 60px 0px;
+		.tag {
+			margin: 0;
+		}
 	}
 	&__container {
 		display: flex;
@@ -140,6 +154,8 @@
 		}
 		@include media(s) {
 			padding: 0 24px;
+			justify-content: start;
+			align-items: start;
 		}
 		.button {
 			background-color: $neutro-50;
@@ -151,12 +167,18 @@
 		color: $neutro-50;
 		text-align: center;
 		margin: 16px 0px;
+		@include media(s) {
+			text-align: left;
+		}
 	}
 	.default__desc {
 		color: #f6f6f6;
 		margin-bottom: 32px;
 		text-align: center;
 		max-width: 970px;
+		@include media(s) {
+			text-align: left;
+		}
 		b {
 			color: $neutro-50;
 			display: block;
@@ -171,7 +193,13 @@
 		@include container;
 		margin-bottom: 32px;
 		width: 100%;
+		@include media(s) {
+			flex-wrap: nowrap;
+			overflow: auto;
+			justify-content: start;
+		}
 		.card-resources {
+			flex-shrink: 0;
 			.default__desc {
 				color: #383838;
 				margin-bottom: 0px;
@@ -191,6 +219,8 @@
 		gap: 58px;
 		@include media(s) {
 			flex-direction: column;
+			justify-content: start;
+			align-items: start;
 		}
 		.tag {
 			background-color: rgba(78, 34, 81, 0.16);
@@ -214,7 +244,7 @@
 		max-width: 596px;
 		@include media(s) {
 			flex-direction: column;
-			align-items: center;
+			align-items: start;
 			justify-content: center;
 			display: flex;
 			padding: 0 24px;
@@ -222,6 +252,10 @@
 	}
 	.default__title {
 		margin: 24px 0px;
+		@include media(s) {
+			text-align: left;
+			font-size: 28px;
+		}
 		span {
 			color: $cor-secundaria;
 		}
@@ -230,11 +264,11 @@
 		font-weight: 300;
 		color: $texto-legenda;
 		margin-bottom: 24px;
+		@include media(s) {
+			text-align: left;
+		}
 		b {
 			font-weight: bold;
-		}
-		@include media(s) {
-			text-align: center;
 		}
 	}
 	&__list {
@@ -277,10 +311,16 @@
 		.default__title {
 			margin: 24px 0px;
 			color: $neutro-50;
+			@include media(s) {
+				text-align: left;
+			}
 		}
 		.default__desc {
 			color: $neutro-50;
 			margin-bottom: 48px;
+			@include media(s) {
+				text-align: left;
+			}
 		}
 	}
 	&__content {
@@ -293,10 +333,15 @@
 	}
 	&__card {
 		max-width: 397px;
+		@include media(s) {
+		}
 		iframe {
 			@include l-shadow;
 			@include l-border;
 			border: 1px solid #f6f6f6;
+			@include media(s) {
+				max-width: 100%;
+			}
 		}
 		&--text {
 			@include text;
@@ -306,28 +351,41 @@
 	}
 }
 .contact {
-	background-color: $cor-primaria;
+	background-color: $neutro-50;
 	padding: 80px 0px;
 	@include media(s) {
 		padding: 60px 0px;
 	}
+	&__content {
+		max-width: 558px;
+	}
 	&__container {
 		@include container;
 		display: flex;
-		justify-content: center;
+		justify-content: space-between;
 		align-items: center;
-		flex-direction: column;
+		gap: 64px;
 		@include media(s) {
 			padding: 0 24px;
+			flex-direction: column;
+			gap: 24px;
 		}
 		.default__title {
-			color: $neutro-50;
-			text-align: center;
+			color: $cor-primaria;
 			margin: 24px 0px;
+			@include media(s) {
+				text-align: left;
+			}
+			span {
+				background-color: $cor-secundaria;
+				display: inline-block;
+				padding: 8px 16px;
+				color: $neutro-50;
+				margin-bottom: 24px;
+			}
 		}
 		.default__desc {
-			color: $neutro-50;
-			text-align: center;
+			color: $texto-legenda;
 			margin-bottom: 64px;
 			@include media(s) {
 				margin-bottom: 40px;
@@ -341,10 +399,11 @@
 		}
 	}
 	&__form {
+		max-width: 558px;
 		width: 100%;
 		display: flex;
 		gap: 16px;
-		background-color: #fff;
+		background-color: #f6f6f6;
 		padding: 64px;
 		flex-wrap: wrap;
 		@include media(s) {
@@ -352,85 +411,24 @@
 		}
 		.form-gap {
 			flex-wrap: wrap;
+			.input_wrap {
+				width: 100%;
+			}
+			.button {
+				width: 100%;
+				display: block;
+			}
 		}
-		@include l-border;
+		@include xl-border;
 		input {
-			max-width: 300px;
+			max-width: 100%;
+			width: 100%;
 		}
 		.button {
 			border: none;
+			width: 100%;
 			@include media(s) {
 				width: 100%;
-			}
-		}
-	}
-}
-
-.faq {
-	padding: 80px 0px;
-	&__container {
-		@include container;
-		display: flex;
-		justify-content: center;
-		gap: 24px;
-		@include media(s) {
-			flex-direction: column;
-			padding: 0px 24px;
-			align-items: center;
-			justify-content: center;
-			gap: 48px;
-		}
-	}
-	&__side {
-		max-width: 576px;
-		@include media(s) {
-			display: flex;
-			justify-content: center;
-			align-items: center;
-			flex-direction: column;
-			text-align: center;
-		}
-		.default__title {
-			margin: 24px 0px;
-		}
-		.default__desc {
-			margin-bottom: 83px;
-			@include media(s) {
-				margin-bottom: 40px;
-			}
-		}
-	}
-	&__content {
-		max-width: 640px;
-		width: 100%;
-		.accordion {
-			&-item {
-				margin-bottom: 16px;
-				border: none;
-				&:last-child {
-					margin-bottom: 0px;
-				}
-			}
-			&-body {
-				@include text;
-			}
-			&-button {
-				color: $texto-resources;
-				@include text;
-				&:focus {
-					border: none;
-					box-shadow: none;
-				}
-				&:not(.collapsed) {
-					color: $cor-primaria;
-					background-color: $cor-secundaria;
-				}
-				&::after {
-					width: 10px;
-					height: 6px;
-					// background-image: url("../assets/seta.svg");
-					background-size: unset;
-				}
 			}
 		}
 	}
